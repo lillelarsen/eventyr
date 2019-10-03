@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Avisruten</title>
+</head>
+<body>
+    <main>
+        <h1><%= title %></h1>
+        <p><%= content %></p>
+        <form method="post">
+            <p>vil du: </p>
+            <select name="action">
+                <% choices.forEach(choice => { %>
+                    <option value="<%= choice.action %>"><%= choice.text %></option>
+                <% }) %>
+            </select>
+            <button type="submit">
+                GO!
+            </button>
+        </form>
+    </main>
+    <aside>
+        <div class="map">
+                <div class="bump">
+                    <p>Bump-o-meter:</p> 
+                    <% for (let i = 0; i < health; i++) { %>
+                        <p class="heart"> ❤ </p>
+                    <% } %>
+                </div>
+                <div class="packages">
+                    <p>pakker hentet ud af 4:</p> 
+                        <% if (packages.s3 == true) { %>
+                            <p class="heart"> 📦 </p>
+                        <% } %>
+                        <% if (packages.s10 == true) { %>
+                            <p class="heart"> 📦 </p>
+                        <% } %>
+                        <% if (packages.s15 == true) { %>
+                            <p class="heart"> 📦 </p>
+                        <% } %>
+                        <% if (packages.s21 == true) { %>
+                            <p class="heart"> 📦 </p>
+                        <% } %>
+                </div>
+            <img class="game-map" src="./images/spil-kort.png" alt="">
+            <p class="<%= position %>">🚲</p>
+        </div>
+        
+    </aside>
+</body>
+</html>
